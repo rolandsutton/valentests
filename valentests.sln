@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "valentest", "valentest\valentest.csproj", "{047ACA15-5549-423D-A7CD-CDF49A6BE21A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "valentest.test", "valentest.test\valentest.test.csproj", "{DEEB655E-3B4B-4729-B345-0F7A8C8A0963}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{047ACA15-5549-423D-A7CD-CDF49A6BE21A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{047ACA15-5549-423D-A7CD-CDF49A6BE21A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{047ACA15-5549-423D-A7CD-CDF49A6BE21A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{047ACA15-5549-423D-A7CD-CDF49A6BE21A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEEB655E-3B4B-4729-B345-0F7A8C8A0963}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEEB655E-3B4B-4729-B345-0F7A8C8A0963}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEEB655E-3B4B-4729-B345-0F7A8C8A0963}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEEB655E-3B4B-4729-B345-0F7A8C8A0963}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
