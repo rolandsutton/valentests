@@ -3,5 +3,5 @@
 public class Stargazing : ValentineIngredientBase
 {
     public override string Name =>"Stargazing";
-    public override int Impact => 5;
+    public override int Impact => 9;
 }

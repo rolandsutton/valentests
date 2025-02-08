@@ -3,5 +3,5 @@
 public class Dancing : ValentineIngredientBase
 {
     public override string Name =>"Dancing";
-    public override int Impact => 5;
+    public override int Impact => 3;
 }

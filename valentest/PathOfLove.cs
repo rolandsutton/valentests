@@ -3,19 +3,24 @@
 public class PathOfLove : IPathOfLove
 {
     List<IValentineIngredient> _recipe = new List<IValentineIngredient>();
-    private int _chanceOfSuccess;
+    private readonly ISuccessotron _successotron;
+
+    public PathOfLove(ISuccessotron successotron)
+    {
+        _successotron = successotron;
+    }
 
     public void Reset()
     {
         _recipe.Clear();
-        _chanceOfSuccess = 0;
+        _successotron.Reset();
     }
 
     public void AddIngredient(IValentineIngredient ingredient)
     {
         _recipe.Add(ingredient);
-        _chanceOfSuccess += ingredient.Impact;
+        _successotron.AddImpact(ingredient.Impact);
     }
 
-    public int ChanceOfSuccess => _chanceOfSuccess;
+    public int ChanceOfSuccess => _successotron.ChanceOfSuccess;
 }

@@ -17,9 +17,10 @@ public class LoveMachineTests
     }
     
     [Test]
-    public void Test1()
+    public void GivenUnknownIngredient_WhenWithIngredient_ThenNothing()
     {
         // Arrange
+        _ingredientProvider.GetIngredient("Deluxe Meal").Returns((IValentineIngredient)null);
         
         // Act
         _loveMachine.WithIngredient("Deluxe Meal");
@@ -28,6 +29,22 @@ public class LoveMachineTests
         // Assert
         _ingredientProvider.Received(1).GetIngredient("Deluxe Meal");
         _pathOfLove.Received(1).Reset();
-        _pathOfLove.Received(1).AddIngredient(Arg.Any<IValentineIngredient>());
+    }
+    
+    [Test]
+    public void GivenSimpleIngredient_WhenWithIngredient()
+    {
+        // Arrange
+        var ingredient = Substitute.For<IValentineIngredient>();
+        _ingredientProvider.GetIngredient("Deluxe Meal").Returns(ingredient);
+        
+        // Act
+        _loveMachine.WithIngredient("Deluxe Meal");
+        _loveMachine.Finish();
+        
+        // Assert
+        _ingredientProvider.Received(1).GetIngredient("Deluxe Meal");
+        _pathOfLove.Received(1).Reset();
+        ingredient.Received(1).ApplyTo(_pathOfLove);
     }
 }

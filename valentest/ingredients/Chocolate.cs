@@ -3,5 +3,5 @@
 public class Chocolate : ValentineIngredientBase
 {
     public override string Name =>"Chocolate";
-    public override int Impact => 5;
+    public override int Impact => 2;
 }

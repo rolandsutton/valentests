@@ -7,6 +7,7 @@ public class LoveMachineTests
     private IIngredientProvider _ingredientProvider;
     private IPathOfLove _pathOfLove;
     private LoveMachine _loveMachine;
+    private ISuccessotron _successotron;
 
     [SetUp]
     public void Setup()
@@ -32,13 +33,14 @@ public class LoveMachineTests
             
         }; 
         
+        _successotron = new Successotron(possibilities);
         _ingredientProvider = new IngredientProvider(possibilities);
-        _pathOfLove = new PathOfLove();
+        _pathOfLove = new PathOfLove(_successotron);
         _loveMachine = new LoveMachine(_ingredientProvider, _pathOfLove);
     }
     
     [Test]
-    public void GivenIngredients_whenRunWithScenario_thenChanceOfSuccessIsGreaterThanZero()
+    public void GivenIngredients_whenRunWithScenario_thenChanceOfSuccessIsCalculated()
     {
         // Act
         _loveMachine
@@ -52,6 +54,6 @@ public class LoveMachineTests
             .Finish();
         
         // Assert
-        Assert.That(_loveMachine.ChanceOfSuccess, Is.GreaterThan(0));
+        Assert.That(_loveMachine.ChanceOfSuccess, Is.EqualTo(52));
     }
 }

@@ -3,5 +3,5 @@
 public class MoonLitNight : ValentineIngredientBase
 {
     public override string Name =>"Moonlit Night";
-    public override int Impact => 5;
+    public override int Impact => 9;
 }
