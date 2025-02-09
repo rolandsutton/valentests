@@ -20,14 +20,14 @@ public class LoveMachineTests
     public void GivenUnknownIngredient_WhenWithIngredient_ThenNothing()
     {
         // Arrange
-        _ingredientProvider.GetIngredient("Deluxe Meal").Returns((IValentineIngredient)null);
+        _ingredientProvider.GetIngredient("Dinosaur Steak").Returns((IValentineIngredient)null);
         
         // Act
-        _loveMachine.WithIngredient("Deluxe Meal");
+        _loveMachine.WithIngredient("Dinosaur Steak");
         _loveMachine.Finish();
         
         // Assert
-        _ingredientProvider.Received(1).GetIngredient("Deluxe Meal");
+        _ingredientProvider.Received(1).GetIngredient("Dinosaur Steak");
         _pathOfLove.Received(1).Reset();
     }
     
@@ -46,5 +46,19 @@ public class LoveMachineTests
         _ingredientProvider.Received(1).GetIngredient("Deluxe Meal");
         _pathOfLove.Received(1).Reset();
         ingredient.Received(1).ApplyTo(_pathOfLove);
+    }
+    
+    [Test]
+    public void WhenChanceOfSuccess_ThenQueriesPathOfLove()
+    {
+        // Arrange
+        _pathOfLove.ChanceOfSuccess.Returns(42);
+        
+        // Act
+        var chanceOfSuccess = _loveMachine.ChanceOfSuccess;
+        
+        // Assert
+        Assert.That(chanceOfSuccess, Is.EqualTo(42));
+        _ = _pathOfLove.Received(1).ChanceOfSuccess;
     }
 }
