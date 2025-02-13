@@ -23,7 +23,7 @@ public class LoveMachineTests
         _ingredientProvider.GetIngredient("Dinosaur Steak").Returns((IValentineIngredient)null);
         
         // Act
-        _loveMachine.WithIngredient("Dinosaur Steak");
+        Assert.That( () =>_loveMachine.WithIngredient("Dinosaur Steak"), Throws.Exception.TypeOf<InvalidDataException>());
         _loveMachine.Finish();
         
         // Assert

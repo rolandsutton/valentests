@@ -17,10 +17,12 @@ public class LoveMachine : ILoveMachine
     public IDateBuilder WithIngredient(string name)
     {
         var ingredient = _ingredientProvider.GetIngredient(name);
-        if (ingredient != null)
+        if (ingredient == null)
         {
-            _ingredients.Add(ingredient);
+            throw new InvalidDataException($"Unknown ingredient {name}");
         }
+
+        _ingredients.Add(ingredient);
         
         return this;
     }
