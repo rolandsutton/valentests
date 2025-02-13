@@ -48,12 +48,12 @@ public class LoveMachineTests
             .WithIngredient("Candle Light Dinner")
             .WithIngredient("Fine Wine")
             .WithIngredient("Romantic Music")
-            .WithIngredient("Walk On Beach")
+            .WithIngredient("Walk on Beach")
             .WithIngredient("Witty Conversation")
             .WithIngredient("Stargazing")
             .Finish();
         
         // Assert
-        Assert.That(_loveMachine.ChanceOfSuccess, Is.EqualTo(52));
+        Assert.That(_loveMachine.ChanceOfSuccess, Is.EqualTo(60));
     }
 }
